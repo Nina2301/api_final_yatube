@@ -6,14 +6,18 @@
   </p>
 </div>
 
+## Описание
+
+Данный проект предоставляет доступ к сервису Yatube посредством API. 
+
 ## Как запустить проект:
 
 1. Клонировать репозиторий и перейти в него в командной строке:
    ```sh
-   git clone https://github.com/Nina2301/api_yatube.git
+   git clone https://github.com/Nina2301/api_final_yatube.git
    ```
    ```sh
-   cd api_yatube
+   cd api_final_yatube
    ```
 
 2. Cоздать и активировать виртуальное окружение:
