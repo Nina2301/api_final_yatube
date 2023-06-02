@@ -77,7 +77,7 @@ class Comment(models.Model):
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
         ordering = ('-created', )
-    
+
     def __str__(self):
         return self.text
 
@@ -103,6 +103,6 @@ class Follow(models.Model):
                 name='unique_follow'
             ),
         )
-    
+
     def __str__(self):
         return f'{self.user.username} подписан на {self.following.username}'
