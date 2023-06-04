@@ -48,7 +48,6 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
-#        ordering = ('-pub_date', 'id')
 
     def __str__(self):
         return self.text
@@ -86,7 +85,7 @@ class Follow(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='follower',
+        related_name='follow',
         verbose_name='Подписчик')
     following = models.ForeignKey(
         User,
@@ -105,4 +104,6 @@ class Follow(models.Model):
         )
 
     def __str__(self):
-        return f'{self.user.username} подписан на {self.following.username}'
+        if self.user and self.following:
+            return f'{self.user.username} подписан на {self.following.username}'
+        return f'Подписка #{self.pk}'

@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
 
-
 from posts.models import Comment, Post, Follow, Group, User
+from .constants import ERROR_FOLLOW_YOURSELF
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -57,5 +57,5 @@ class FollowSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         if user == following:
             raise serializers.ValidationError(
-                'Нельзя подписаться на самого себя!')
+                ERROR_FOLLOW_YOURSELF)
         return data
