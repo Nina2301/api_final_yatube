@@ -105,5 +105,7 @@ class Follow(models.Model):
 
     def __str__(self):
         if self.user and self.following:
-            return f'{self.user.username} подписан на {self.following.username}'
+            return '{} подписан на {}'.format(
+                self.user.username, self.following.username
+                )
         return f'Подписка #{self.pk}'
